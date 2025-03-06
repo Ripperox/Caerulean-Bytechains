@@ -1,3 +1,4 @@
+````solidity
 // Solidity version missing
 contract BuggyToken {
 uint256 public totalSupply;
@@ -12,18 +13,22 @@ balances[msg.sender] -= amount;
 balances[to] += amount;
 }
 }
-
+````
 Fix 1 -> Missing pragma solidity version specification
+
         pragma solidity ^0.8.0;
     
 Fix 2-> Make sure event is emitted
+
         emit Transfer(msg.sender, to, amount);
 
 Fix 3 -> Make sure address is correct
+
         require(to != address(0), "Invalid recipient address");
 
-FIXED CODE 
+## FIXED CODE 
 
+````solidity
 pragma solidity ^0.8.0;
 
 contract BuggyToken {
@@ -47,3 +52,6 @@ contract BuggyToken {
         emit Transfer(msg.sender, to, amount);
     }
 }
+````
+
+Code is now optimized as it consists of error handling and the public from default constructor is removed to prevent extra gas fees
