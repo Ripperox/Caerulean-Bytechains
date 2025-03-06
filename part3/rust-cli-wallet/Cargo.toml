@@ -1,0 +1,15 @@
+[package]
+name = "rust-cli-wallet"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = "2.33"
+ed25519-dalek = "1.0"
+rand = "0.7"
+hex = "0.4"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+
+
